@@ -1,0 +1,879 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_f2d44192824416285348ddc679b48bed {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 40px; left: 40px; z-index: 1000;
+     background: white; padding: 15px; border-radius: 10px;
+     border: 2px solid grey; font-size: 14px;">
+  <b>🚛 Fleet Routes</b><br><br>
+  <span style="color:red">●</span> Vehicle 1 — 21.96 km — 6 packages<br>
+  <span style="color:blue">●</span> Vehicle 2 — 33.37 km — 10 packages<br>
+  <span style="color:green">●</span> Vehicle 3 — 33.97 km — 10 packages<br>
+  <br><b>Total: 89.30 km</b>
+</div>
+    
+            <div class="folium-map" id="map_f2d44192824416285348ddc679b48bed" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_f2d44192824416285348ddc679b48bed = L.map(
+                "map_f2d44192824416285348ddc679b48bed",
+                {
+                    center: [12.9716, 77.5946],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_8a581a78b472998da35bce66426116be = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_8a581a78b472998da35bce66426116be.addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var poly_line_a00c3e11f11fc03f32b2372b41ebe1be = L.polyline(
+                [[12.9716, 77.5946], [13.035, 77.597], [13.024, 77.5383], [12.9716, 77.5946]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            poly_line_a00c3e11f11fc03f32b2372b41ebe1be.bindTooltip(
+                `<div>
+                     Vehicle 1 | 21.96 km | 6 packages
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_a7415c026ff9d92eeef45c8a9ccf0015 = L.marker(
+                [12.9716, 77.5946],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_456a5cefb05a53218b4ca3e0fc264b6f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f9f004f2e9e294aed5dce532481c04a5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_6ed3da1d5a53be3e9636a9363db90a86 = $(`<div id="html_6ed3da1d5a53be3e9636a9363db90a86" style="width: 100.0%; height: 100.0%;">🏭 Depot (Warehouse)</div>`)[0];
+                popup_f9f004f2e9e294aed5dce532481c04a5.setContent(html_6ed3da1d5a53be3e9636a9363db90a86);
+            
+        
+
+        marker_a7415c026ff9d92eeef45c8a9ccf0015.bindPopup(popup_f9f004f2e9e294aed5dce532481c04a5)
+        ;
+
+        
+    
+    
+            marker_a7415c026ff9d92eeef45c8a9ccf0015.bindTooltip(
+                `<div>
+                     Depot
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a7415c026ff9d92eeef45c8a9ccf0015.setIcon(icon_456a5cefb05a53218b4ca3e0fc264b6f);
+            
+    
+            var marker_1d1b7e236d392d2199c8a31bba33789a = L.marker(
+                [13.035, 77.597],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_dbdba69334f73b8787b74da190509abd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3208b1d006cff96eef91316bdf56401b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_59a3bd3af662fed79f1f1378cfebff82 = $(`<div id="html_59a3bd3af662fed79f1f1378cfebff82" style="width: 100.0%; height: 100.0%;">Hebbal<br>Vehicle 1</div>`)[0];
+                popup_3208b1d006cff96eef91316bdf56401b.setContent(html_59a3bd3af662fed79f1f1378cfebff82);
+            
+        
+
+        marker_1d1b7e236d392d2199c8a31bba33789a.bindPopup(popup_3208b1d006cff96eef91316bdf56401b)
+        ;
+
+        
+    
+    
+            marker_1d1b7e236d392d2199c8a31bba33789a.bindTooltip(
+                `<div>
+                     Hebbal (Vehicle 1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1d1b7e236d392d2199c8a31bba33789a.setIcon(icon_dbdba69334f73b8787b74da190509abd);
+            
+    
+            var marker_b0c70a25f92d551ea7e21d7f249a0bfa = L.marker(
+                [13.024, 77.5383],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_e3c5748741751ede5d2e169281ed533e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e57e912ad357f83542e47d75f09154a7 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3d36e974b409daed0753744a3ee20260 = $(`<div id="html_3d36e974b409daed0753744a3ee20260" style="width: 100.0%; height: 100.0%;">Yeshwanthpur<br>Vehicle 1</div>`)[0];
+                popup_e57e912ad357f83542e47d75f09154a7.setContent(html_3d36e974b409daed0753744a3ee20260);
+            
+        
+
+        marker_b0c70a25f92d551ea7e21d7f249a0bfa.bindPopup(popup_e57e912ad357f83542e47d75f09154a7)
+        ;
+
+        
+    
+    
+            marker_b0c70a25f92d551ea7e21d7f249a0bfa.bindTooltip(
+                `<div>
+                     Yeshwanthpur (Vehicle 1)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b0c70a25f92d551ea7e21d7f249a0bfa.setIcon(icon_e3c5748741751ede5d2e169281ed533e);
+            
+    
+            var marker_e0ed081c9d4a5231a1b40a5880311ec9 = L.marker(
+                [12.9716, 77.5946],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_1dd2f25a8b47ff965b4df69a68a92231 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_205935bed0b3a61a943c219c8139c197 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5cd391473cda66cb1b968b685fc22ff2 = $(`<div id="html_5cd391473cda66cb1b968b685fc22ff2" style="width: 100.0%; height: 100.0%;">🏭 Depot (Warehouse)</div>`)[0];
+                popup_205935bed0b3a61a943c219c8139c197.setContent(html_5cd391473cda66cb1b968b685fc22ff2);
+            
+        
+
+        marker_e0ed081c9d4a5231a1b40a5880311ec9.bindPopup(popup_205935bed0b3a61a943c219c8139c197)
+        ;
+
+        
+    
+    
+            marker_e0ed081c9d4a5231a1b40a5880311ec9.bindTooltip(
+                `<div>
+                     Depot
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_e0ed081c9d4a5231a1b40a5880311ec9.setIcon(icon_1dd2f25a8b47ff965b4df69a68a92231);
+            
+    
+            var poly_line_9e9c43a917a815a1ff684a5f30b506fa = L.polyline(
+                [[12.9716, 77.5946], [12.9352, 77.6245], [12.8458, 77.6603], [12.9166, 77.6101], [12.9308, 77.5838], [12.9716, 77.5946]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            poly_line_9e9c43a917a815a1ff684a5f30b506fa.bindTooltip(
+                `<div>
+                     Vehicle 2 | 33.37 km | 10 packages
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_778e0a695519747ed488045cbb498a07 = L.marker(
+                [12.9716, 77.5946],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_5fd1f1c89b31d21d2df47ade4a37e80a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d9faa2308cdc0cadd1584dd8cf10e873 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fcf6a852d360283d5776be930e514d0b = $(`<div id="html_fcf6a852d360283d5776be930e514d0b" style="width: 100.0%; height: 100.0%;">🏭 Depot (Warehouse)</div>`)[0];
+                popup_d9faa2308cdc0cadd1584dd8cf10e873.setContent(html_fcf6a852d360283d5776be930e514d0b);
+            
+        
+
+        marker_778e0a695519747ed488045cbb498a07.bindPopup(popup_d9faa2308cdc0cadd1584dd8cf10e873)
+        ;
+
+        
+    
+    
+            marker_778e0a695519747ed488045cbb498a07.bindTooltip(
+                `<div>
+                     Depot
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_778e0a695519747ed488045cbb498a07.setIcon(icon_5fd1f1c89b31d21d2df47ade4a37e80a);
+            
+    
+            var marker_4961da4aad49c209a064d150faaa591f = L.marker(
+                [12.9352, 77.6245],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_03b982957a83b22e7c0ebde214e95cf5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d848df42f9b8d40303ee379155756fb1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9ab607409bdcaa07efda825b716bd587 = $(`<div id="html_9ab607409bdcaa07efda825b716bd587" style="width: 100.0%; height: 100.0%;">Koramangala<br>Vehicle 2</div>`)[0];
+                popup_d848df42f9b8d40303ee379155756fb1.setContent(html_9ab607409bdcaa07efda825b716bd587);
+            
+        
+
+        marker_4961da4aad49c209a064d150faaa591f.bindPopup(popup_d848df42f9b8d40303ee379155756fb1)
+        ;
+
+        
+    
+    
+            marker_4961da4aad49c209a064d150faaa591f.bindTooltip(
+                `<div>
+                     Koramangala (Vehicle 2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4961da4aad49c209a064d150faaa591f.setIcon(icon_03b982957a83b22e7c0ebde214e95cf5);
+            
+    
+            var marker_29bc84f47968c8f78b5337e5d4140e32 = L.marker(
+                [12.8458, 77.6603],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_ce9b9c3e4d73b698d22dc48f99cab5c7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_dd346df6e40c8e865d2f3a289fbcbf94 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_f78dd8d34b03934395e62b30c56ec1aa = $(`<div id="html_f78dd8d34b03934395e62b30c56ec1aa" style="width: 100.0%; height: 100.0%;">Electronic City<br>Vehicle 2</div>`)[0];
+                popup_dd346df6e40c8e865d2f3a289fbcbf94.setContent(html_f78dd8d34b03934395e62b30c56ec1aa);
+            
+        
+
+        marker_29bc84f47968c8f78b5337e5d4140e32.bindPopup(popup_dd346df6e40c8e865d2f3a289fbcbf94)
+        ;
+
+        
+    
+    
+            marker_29bc84f47968c8f78b5337e5d4140e32.bindTooltip(
+                `<div>
+                     Electronic City (Vehicle 2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_29bc84f47968c8f78b5337e5d4140e32.setIcon(icon_ce9b9c3e4d73b698d22dc48f99cab5c7);
+            
+    
+            var marker_c714a62abe69c5f0a2613dd0b054501d = L.marker(
+                [12.9166, 77.6101],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_5e7366d03414610c66b5078226e8234b = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4339ac5da990888aba82e14b3e51705f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_06f76eb8be83f474aa7917448fff8a24 = $(`<div id="html_06f76eb8be83f474aa7917448fff8a24" style="width: 100.0%; height: 100.0%;">BTM Layout<br>Vehicle 2</div>`)[0];
+                popup_4339ac5da990888aba82e14b3e51705f.setContent(html_06f76eb8be83f474aa7917448fff8a24);
+            
+        
+
+        marker_c714a62abe69c5f0a2613dd0b054501d.bindPopup(popup_4339ac5da990888aba82e14b3e51705f)
+        ;
+
+        
+    
+    
+            marker_c714a62abe69c5f0a2613dd0b054501d.bindTooltip(
+                `<div>
+                     BTM Layout (Vehicle 2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c714a62abe69c5f0a2613dd0b054501d.setIcon(icon_5e7366d03414610c66b5078226e8234b);
+            
+    
+            var marker_d3149a712840f4d53303f7839e3a228e = L.marker(
+                [12.9308, 77.5838],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_675b77fceb6f6a17a4e5bfd6096e5ef7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7f9e9d94cc163931ccb7112c56d42926 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_fa063c0cdd15394ca3e0407d48acb3a5 = $(`<div id="html_fa063c0cdd15394ca3e0407d48acb3a5" style="width: 100.0%; height: 100.0%;">Jayanagar<br>Vehicle 2</div>`)[0];
+                popup_7f9e9d94cc163931ccb7112c56d42926.setContent(html_fa063c0cdd15394ca3e0407d48acb3a5);
+            
+        
+
+        marker_d3149a712840f4d53303f7839e3a228e.bindPopup(popup_7f9e9d94cc163931ccb7112c56d42926)
+        ;
+
+        
+    
+    
+            marker_d3149a712840f4d53303f7839e3a228e.bindTooltip(
+                `<div>
+                     Jayanagar (Vehicle 2)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d3149a712840f4d53303f7839e3a228e.setIcon(icon_675b77fceb6f6a17a4e5bfd6096e5ef7);
+            
+    
+            var marker_7952cf064c159ee157dccb01a145e9e4 = L.marker(
+                [12.9716, 77.5946],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_dcc4a1c992bcf0bd11f17a49fe4638d2 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ee8c601ccc6d323f8b0b3d1bc6e63ceb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3b99bc9ca7b06044891605cd6d5700bf = $(`<div id="html_3b99bc9ca7b06044891605cd6d5700bf" style="width: 100.0%; height: 100.0%;">🏭 Depot (Warehouse)</div>`)[0];
+                popup_ee8c601ccc6d323f8b0b3d1bc6e63ceb.setContent(html_3b99bc9ca7b06044891605cd6d5700bf);
+            
+        
+
+        marker_7952cf064c159ee157dccb01a145e9e4.bindPopup(popup_ee8c601ccc6d323f8b0b3d1bc6e63ceb)
+        ;
+
+        
+    
+    
+            marker_7952cf064c159ee157dccb01a145e9e4.bindTooltip(
+                `<div>
+                     Depot
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7952cf064c159ee157dccb01a145e9e4.setIcon(icon_dcc4a1c992bcf0bd11f17a49fe4638d2);
+            
+    
+            var poly_line_c7f8435e907f50c647da70bdbbd281df = L.polyline(
+                [[12.9716, 77.5946], [12.9784, 77.6408], [12.9698, 77.7499], [12.9591, 77.7009], [12.9716, 77.5946]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 4}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            poly_line_c7f8435e907f50c647da70bdbbd281df.bindTooltip(
+                `<div>
+                     Vehicle 3 | 33.97 km | 10 packages
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+            var marker_0c11c0c94000f9dd4c6a0d1cde52f2e4 = L.marker(
+                [12.9716, 77.5946],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_ff6c684851d4e8c91ca76ea3dbd8bf99 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_03383dd1be5d6b6fce1eb5412be8919c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d9ed38b89457a81a6355bea37e69b2ec = $(`<div id="html_d9ed38b89457a81a6355bea37e69b2ec" style="width: 100.0%; height: 100.0%;">🏭 Depot (Warehouse)</div>`)[0];
+                popup_03383dd1be5d6b6fce1eb5412be8919c.setContent(html_d9ed38b89457a81a6355bea37e69b2ec);
+            
+        
+
+        marker_0c11c0c94000f9dd4c6a0d1cde52f2e4.bindPopup(popup_03383dd1be5d6b6fce1eb5412be8919c)
+        ;
+
+        
+    
+    
+            marker_0c11c0c94000f9dd4c6a0d1cde52f2e4.bindTooltip(
+                `<div>
+                     Depot
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0c11c0c94000f9dd4c6a0d1cde52f2e4.setIcon(icon_ff6c684851d4e8c91ca76ea3dbd8bf99);
+            
+    
+            var marker_24856083b5fa3fc7580a649208d208f3 = L.marker(
+                [12.9784, 77.6408],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_fbcdeb7b8cfb92b6a3797fcc827c9c57 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0721284ed4724adb12361b61b644a228 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_03746b7b8cf01b99e436094d6b65d39f = $(`<div id="html_03746b7b8cf01b99e436094d6b65d39f" style="width: 100.0%; height: 100.0%;">Indiranagar<br>Vehicle 3</div>`)[0];
+                popup_0721284ed4724adb12361b61b644a228.setContent(html_03746b7b8cf01b99e436094d6b65d39f);
+            
+        
+
+        marker_24856083b5fa3fc7580a649208d208f3.bindPopup(popup_0721284ed4724adb12361b61b644a228)
+        ;
+
+        
+    
+    
+            marker_24856083b5fa3fc7580a649208d208f3.bindTooltip(
+                `<div>
+                     Indiranagar (Vehicle 3)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_24856083b5fa3fc7580a649208d208f3.setIcon(icon_fbcdeb7b8cfb92b6a3797fcc827c9c57);
+            
+    
+            var marker_63e1775d04397ea790ea68b4f70487e8 = L.marker(
+                [12.9698, 77.7499],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_be0a2f5b75ec979d4b6bb4e1b395c66c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c7dda3b885bc39750ba7e0daf6aceec2 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_00a8b27156dcc14a0a569203b506e603 = $(`<div id="html_00a8b27156dcc14a0a569203b506e603" style="width: 100.0%; height: 100.0%;">Whitefield<br>Vehicle 3</div>`)[0];
+                popup_c7dda3b885bc39750ba7e0daf6aceec2.setContent(html_00a8b27156dcc14a0a569203b506e603);
+            
+        
+
+        marker_63e1775d04397ea790ea68b4f70487e8.bindPopup(popup_c7dda3b885bc39750ba7e0daf6aceec2)
+        ;
+
+        
+    
+    
+            marker_63e1775d04397ea790ea68b4f70487e8.bindTooltip(
+                `<div>
+                     Whitefield (Vehicle 3)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_63e1775d04397ea790ea68b4f70487e8.setIcon(icon_be0a2f5b75ec979d4b6bb4e1b395c66c);
+            
+    
+            var marker_cdfcaeb5544488dfde38ccfa9a3a9f20 = L.marker(
+                [12.9591, 77.7009],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_eaa0e3046392324864cc74ee679114e5 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "shopping-cart",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0625820612475f37387deb27099efb53 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a8630bcb6454a6b97ea09ef5e2b4368 = $(`<div id="html_9a8630bcb6454a6b97ea09ef5e2b4368" style="width: 100.0%; height: 100.0%;">Marathahalli<br>Vehicle 3</div>`)[0];
+                popup_0625820612475f37387deb27099efb53.setContent(html_9a8630bcb6454a6b97ea09ef5e2b4368);
+            
+        
+
+        marker_cdfcaeb5544488dfde38ccfa9a3a9f20.bindPopup(popup_0625820612475f37387deb27099efb53)
+        ;
+
+        
+    
+    
+            marker_cdfcaeb5544488dfde38ccfa9a3a9f20.bindTooltip(
+                `<div>
+                     Marathahalli (Vehicle 3)
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cdfcaeb5544488dfde38ccfa9a3a9f20.setIcon(icon_eaa0e3046392324864cc74ee679114e5);
+            
+    
+            var marker_229afcc8a680a5ba366ce84bd0aecfba = L.marker(
+                [12.9716, 77.5946],
+                {
+}
+            ).addTo(map_f2d44192824416285348ddc679b48bed);
+        
+    
+            var icon_ecf043771855226a93cd84c572de9c01 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_211910384e943dd16c8a34474f7ec15f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_43e215fc5c74d73bad3b4772bb6290ad = $(`<div id="html_43e215fc5c74d73bad3b4772bb6290ad" style="width: 100.0%; height: 100.0%;">🏭 Depot (Warehouse)</div>`)[0];
+                popup_211910384e943dd16c8a34474f7ec15f.setContent(html_43e215fc5c74d73bad3b4772bb6290ad);
+            
+        
+
+        marker_229afcc8a680a5ba366ce84bd0aecfba.bindPopup(popup_211910384e943dd16c8a34474f7ec15f)
+        ;
+
+        
+    
+    
+            marker_229afcc8a680a5ba366ce84bd0aecfba.bindTooltip(
+                `<div>
+                     Depot
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_229afcc8a680a5ba366ce84bd0aecfba.setIcon(icon_ecf043771855226a93cd84c572de9c01);
+            
+</script>
+</html>
